@@ -15,10 +15,12 @@ public class BasicScopeTest {
 		Assert.assertEquals("Scope parts size not zero", 0, scope.getScopePartsSize());
 		Assert.assertEquals("Output not empty", 0, scope.toString().length());
 
+		scope.addScopeParts("user", "email", "read");
+
 		Assert.assertEquals(
-			"Returned scope not the same",
+			"Scope does not fulfill expectation",
 			scope,
-			scope.addScopeParts("user", "email", "read")
+			ScopeFactory.createBasicScope().addScopeParts("user", "email", "read")
 		);
 
 		Assert.assertEquals("Scope output doesn't match", "user.email.read", scope.toString());
