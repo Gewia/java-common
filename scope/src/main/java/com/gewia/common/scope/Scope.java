@@ -75,6 +75,18 @@ public abstract class Scope {
 	public abstract Scope addScopePart(ScopePart scopePart);
 
 	/**
+	 * Adds the given <i>scopePart</i> at the given <i>index</i>.
+	 *
+	 * @param scopePart the scope part to add
+	 * @param index the index to add the scope part at
+	 *
+	 * @return this
+	 *
+	 * @since 1.0
+	 */
+	public abstract Scope setScopePart(ScopePart scopePart, int index);
+
+	/**
 	 * Removes the scope part at the given <i>index</i>.
 	 *
 	 * @param index the index used to remove the scope part

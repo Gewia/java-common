@@ -27,10 +27,10 @@ Some special features:
 - Implementations with and without restrictions
     - BasicScope (no restrictions)
     - MicroServiceScope
-        - microService.topic.mode.scope.extra
+        - microService.topic.mode.limitation.extra
 - Merging (and de-merging)
     - user.email.read+write+delete.all+beta
-- Pre-defined scopes
+- Pre-defined limitations
     - none (default)
     - own
     - self (only applicable to topics regarding a user itself)
