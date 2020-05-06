@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @since 1.0
  */
-@RequiredArgsConstructor(access = AccessLevel.MODULE)
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public class BasicScope extends Scope {
 
 	/**
@@ -52,5 +52,31 @@ public class BasicScope extends Scope {
 		return this.scopeParts.size();
 	}
 
+	@Override
+	public Scope setScopePart(ScopePart scopePart, int index) {
+		this.scopeParts.set(index, scopePart);
+		return this;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) return true;
+		if (obj == null) return false;
+		if (!(obj instanceof Scope)) return false;
+
+		Scope scope = (Scope) obj;
+		List<ScopePart> parts = scope.getScopeParts();
+		for (int i = 0, partsSize = parts.size(); i < partsSize; i++) {
+			ScopePart scopePart = parts.get(i);
+			if (!scopePart.equals(this.getScopePart(i))) return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 
 }
