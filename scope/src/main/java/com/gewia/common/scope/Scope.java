@@ -6,15 +6,16 @@ import java.util.List;
 /**
  * A scope is a mechanism to limit permissions of a person or application.
  *
- * This implementation is the reference implementation of scopes for the 'Gewia' project.
+ * <p>
+ * 		This implementation is the reference implementation of scopes for the 'Gewia' project.
  *
- * Examples:
- * 		user.email.read.self - let's the user read his own email address
- * 		user.email.write.self - let's the user change his own email address
- * 		user.email.write.all - let's the user change every email address of every user
- * 		user.email.write.steve - let's the user change the email address of "steve"; this is a custom behaviour
+ * 		Examples:
+ * 			user.email.read.self - let's the user read his own email address
+ * 			user.email.write.self - let's the user change his own email address
+ * 			user.email.write.all - let's the user change every email address of every user
+ * 			user.email.write.steve - let's the user change the email address of "steve"; this is a custom behaviour
  * 									and not part of the official specification
- *
+ * </p>
  * @since 1.0
  */
 public abstract class Scope {
@@ -24,8 +25,10 @@ public abstract class Scope {
 	/**
 	 * Gets the currently available scope parts.
 	 *
-	 * Whether the returned list is readonly or even a copy will be specified by
-	 * the implementation.
+	 * <p>
+	 * 		Whether the returned list is readonly or even a copy will be specified by
+	 * 		the implementation.
+	 * </p>
 	 *
 	 * @return all scope parts
 	 *

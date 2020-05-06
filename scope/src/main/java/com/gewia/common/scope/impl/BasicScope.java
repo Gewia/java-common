@@ -17,9 +17,11 @@ public class BasicScope extends Scope {
 	/**
 	 * Gets the currently available scope parts.
 	 *
-	 * The returned list is the real modifiable list used for internal
-	 * purposes.
-	 * Modifications to this list will directly affect this scope.
+	 * <p>
+	 *     	The returned list is the real modifiable list used for internal
+	 * 		purposes.
+	 * 		Modifications to this list will directly affect this scope.
+	 * </p>
 	 *
 	 * @return all scope parts
 	 */
