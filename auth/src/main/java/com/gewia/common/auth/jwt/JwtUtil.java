@@ -53,6 +53,7 @@ public class JwtUtil {
 	 *
 	 * @return a pair including the decoded token and the result
 	 */
+	@SuppressWarnings("IllegalCatch")
 	public Pair<DecodedJWT, VerificationResult> verify(String token) {
 		if (token.toLowerCase().startsWith("bearer")) token = token.substring(7);
 
@@ -103,7 +104,9 @@ public class JwtUtil {
 	/**
 	 * Creates a default jwt which can be used as a CSRF or refresh token - or whatever u want.
 	 *
-	 * To be compliant with most standards, you should set the subject (the user).
+	 * <p>
+	 *     To be compliant with most standards, you should set the subject (the user).
+	 * </p>
 	 *
 	 * @param expirationTime the amount of <i>expirationTimeUnit</i> the token shall be valid
 	 * @param expirationTimeUnit the time unit used for <i>expirationTime</i>; Use Calendar.XY for this
@@ -132,7 +135,9 @@ public class JwtUtil {
 	/**
 	 * Creates a default jwt which can be used as a CSRF or refresh token - or whatever u want.
 	 *
-	 * To be compliant with most standards, you should set the subject (the user).
+	 * <p>
+	 *     To be compliant with most standards, you should set the subject (the user).
+	 * </p>
 	 *
 	 * @param expirationTime the amount of <i>expirationTimeUnit</i> the token shall be valid
 	 * @param expirationTimeUnit the time unit used for <i>expirationTime</i>; Use Calendar.XY for this
