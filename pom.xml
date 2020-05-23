@@ -13,6 +13,7 @@
 		<module>scope</module>
 		<module>auth</module>
 		<module>util</module>
+		<module>spring-auth</module>
 	</modules>
 
 	<properties>
