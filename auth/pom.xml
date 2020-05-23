@@ -18,6 +18,11 @@
 			<version>${project.parent.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.gewia.common</groupId>
+			<artifactId>scope</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.auth0</groupId>
