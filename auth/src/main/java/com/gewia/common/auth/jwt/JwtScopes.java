@@ -36,4 +36,8 @@ public class JwtScopes {
 		return containing;
 	}
 
+	public boolean hasScope(String scope) {
+		return this.scopes.contains(scope);
+	}
+
 }

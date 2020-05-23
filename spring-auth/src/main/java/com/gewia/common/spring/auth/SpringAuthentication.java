@@ -15,9 +15,9 @@ public abstract class SpringAuthentication implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() {
-		interceptors = this.addAuthenticationInterceptors(interceptors);
+		this.addAuthenticationInterceptors(interceptors);
 	}
 
-	abstract public List<HandlerInterceptorAdapter> addAuthenticationInterceptors(List<HandlerInterceptorAdapter> authenticationInterceptors);
+	abstract public void addAuthenticationInterceptors(List<HandlerInterceptorAdapter> authenticationInterceptors);
 
 }

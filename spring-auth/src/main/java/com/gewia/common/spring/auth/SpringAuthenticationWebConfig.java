@@ -1,8 +1,11 @@
 package com.gewia.common.spring.auth;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
 import java.util.List;
+import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.gewia.common.auth.jwt.Jwt;
+import com.gewia.common.auth.jwt.JwtScopes;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -20,12 +23,15 @@ public class SpringAuthenticationWebConfig implements WebMvcConfigurer, HandlerM
 
 	@Override
 	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-		return ((HttpServletRequest) webRequest.getNativeRequest()).getAttribute("accessToken");
+		DecodedJWT decodedJWT = (DecodedJWT) ((HttpServletRequest) webRequest.getNativeRequest()).getAttribute("accessToken");
+
+		return new Jwt(UUID.fromString(decodedJWT.getClaim("userId").asString()),
+				new JwtScopes(decodedJWT.getClaim("scopes").asList(String.class)));
 	}
 
 	@Override
 	public boolean supportsParameter(MethodParameter parameter) {
-		return parameter.getParameterType().equals(DecodedJWT.class);
+		return parameter.getParameterType().equals(Jwt.class);
 	}
 
 	@Override
