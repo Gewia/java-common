@@ -68,7 +68,8 @@ public class JwtUtil {
 			return Pair.of(null, VerificationResult.UNKNOWN);
 		}
 
-		if (jwt.getExpiresAt().before(Date.from(Instant.now()))) return Pair.of(jwt, VerificationResult.EXPIRED);
+		if (jwt.getExpiresAt() != null && jwt.getExpiresAt().before(Date.from(Instant.now())))
+			return Pair.of(jwt, VerificationResult.EXPIRED);
 
 		try {
 			jwt = verifier.verify(jwt);
